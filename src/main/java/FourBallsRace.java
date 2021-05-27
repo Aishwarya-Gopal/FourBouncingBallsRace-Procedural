@@ -10,4 +10,8 @@ public class FourBallsRace extends PApplet {
         super.settings();
     }
 
+    @Override
+    public void setup() {
+        super.setup();
+    }
 }
