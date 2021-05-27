@@ -26,13 +26,13 @@ public class FourBallsRace extends PApplet {
     public void setup() {
         setBlackBackground();
         ballOneXCoor = 0;
-        ballOneYCoor = SKETCH_HEIGHT / 5;
+        ballOneYCoor = setYCoor(1);
         ballTwoXCoor = 0;
-        ballTwoYCoor = (SKETCH_HEIGHT * 2) / 5;
+        ballTwoYCoor = setYCoor(2);
         ballThreeXCoor = 0;
-        ballThreeYCoor = (SKETCH_HEIGHT * 3) / 5;
+        ballThreeYCoor = setYCoor(3);
         ballFourXCoor = 0;
-        ballFourYCoor = (SKETCH_HEIGHT * 4) / 5;
+        ballFourYCoor = setYCoor(4);
     }
 
     @Override
@@ -57,5 +57,9 @@ public class FourBallsRace extends PApplet {
     private void setBlackBackground() {
         int SKETCH_BACKGROUND_COLOR = 0;
         background(SKETCH_BACKGROUND_COLOR);
+    }
+
+    private int setYCoor(int ballNo) {
+        return (int) ((SKETCH_HEIGHT * ballNo) / 5.0);
     }
 }
