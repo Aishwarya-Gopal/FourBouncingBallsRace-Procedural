@@ -1,15 +1,15 @@
 import processing.core.PApplet;
 
 public class FourBallsRace extends PApplet {
+
+    private final int SKETCH_WIDTH = 640;
     private final int SKETCH_HEIGHT = 480;
     private final int BALL_DIAMETER = 25;
+
     private int ballOneXCoor, ballOneYCoor;
-    private int ballTwoXCoor;
-    private int ballTwoYCoor;
-    private int ballThreeXCoor;
-    private int ballThreeYCoor;
-    private int ballFourXCoor;
-    private int ballFourYCoor;
+    private int ballTwoXCoor, ballTwoYCoor;
+    private int ballThreeXCoor, ballThreeYCoor;
+    private int ballFourXCoor, ballFourYCoor;
 
     public static void main(String[] args) {
         PApplet.main("FourBallsRace", args);
@@ -18,19 +18,22 @@ public class FourBallsRace extends PApplet {
     @Override
     public void settings() {
         super.settings();
-        int SKETCH_WIDTH = 640;
         size(SKETCH_WIDTH, SKETCH_HEIGHT);
     }
 
     @Override
     public void setup() {
         setBlackBackground();
+
         ballOneXCoor = 0;
         ballOneYCoor = setYCoor(1);
+
         ballTwoXCoor = 0;
         ballTwoYCoor = setYCoor(2);
+
         ballThreeXCoor = 0;
         ballThreeYCoor = setYCoor(3);
+
         ballFourXCoor = 0;
         ballFourYCoor = setYCoor(4);
     }
