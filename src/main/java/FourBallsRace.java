@@ -1,7 +1,9 @@
 import processing.core.PApplet;
 
 public class FourBallsRace extends PApplet {
-    private int SKETCH_BACKGROUND_COLOR = 0;
+    private final int SKETCH_BACKGROUND_COLOR = 0;
+    private final int SKETCH_WIDTH = 640;
+    private final int SKETCH_HEIGHT = 480;
 
     public static void main(String[] args) {
         PApplet.main("FourBallsRace", args);
@@ -10,6 +12,7 @@ public class FourBallsRace extends PApplet {
     @Override
     public void settings() {
         super.settings();
+        size(SKETCH_WIDTH, SKETCH_HEIGHT);
     }
 
     @Override
