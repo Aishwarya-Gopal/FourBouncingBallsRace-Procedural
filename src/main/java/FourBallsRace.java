@@ -1,6 +1,8 @@
 import processing.core.PApplet;
 
 public class FourBallsRace extends PApplet {
+    private int SKETCH_BACKGROUND_COLOR = 0;
+
     public static void main(String[] args) {
         PApplet.main("FourBallsRace", args);
     }
@@ -12,11 +14,15 @@ public class FourBallsRace extends PApplet {
 
     @Override
     public void setup() {
-        super.setup();
+        setBlackBackground();
     }
 
     @Override
     public void draw() {
         super.draw();
+    }
+
+    private void setBlackBackground() {
+        background(SKETCH_BACKGROUND_COLOR);
     }
 }
