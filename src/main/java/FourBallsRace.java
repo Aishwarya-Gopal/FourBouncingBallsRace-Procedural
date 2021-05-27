@@ -8,6 +8,8 @@ public class FourBallsRace extends PApplet {
     private int ballTwoYCoor;
     private int ballThreeXCoor;
     private int ballThreeYCoor;
+    private int ballFourXCoor;
+    private int ballFourYCoor;
 
     public static void main(String[] args) {
         PApplet.main("FourBallsRace", args);
@@ -29,6 +31,8 @@ public class FourBallsRace extends PApplet {
         ballTwoYCoor = (SKETCH_HEIGHT * 2) / 5;
         ballThreeXCoor = 0;
         ballThreeYCoor = (SKETCH_HEIGHT * 3) / 5;
+        ballFourXCoor = 0;
+        ballFourYCoor = (SKETCH_HEIGHT * 4) / 5;
     }
 
     @Override
@@ -44,6 +48,10 @@ public class FourBallsRace extends PApplet {
         fill(56, 232, 255);
         ellipse(ballThreeXCoor, ballThreeYCoor, BALL_DIAMETER, BALL_DIAMETER);
         ballThreeXCoor += 3;
+
+        fill(183, 89, 255);
+        ellipse(ballFourXCoor, ballFourYCoor, BALL_DIAMETER, BALL_DIAMETER);
+        ballFourXCoor += 4;
     }
 
     private void setBlackBackground() {
