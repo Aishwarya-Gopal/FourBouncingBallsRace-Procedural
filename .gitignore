@@ -1,0 +1,12 @@
+# intellij
+.idea/
+.DS_Store
+
+
+# gradle build files
+.gradle
+build
+gradle
+gradlew
+gradlew.bat
+settings.gradle
