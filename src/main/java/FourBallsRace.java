@@ -1,15 +1,15 @@
 import processing.core.PApplet;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+
 public class FourBallsRace extends PApplet {
 
     private final int SKETCH_WIDTH = 640;
     private final int SKETCH_HEIGHT = 480;
     private final int BALL_DIAMETER = 25;
 
-    private int ballOneXCoor, ballOneYCoor;
-    private int ballTwoXCoor, ballTwoYCoor;
-    private int ballThreeXCoor, ballThreeYCoor;
-    private int ballFourXCoor, ballFourYCoor;
+    ArrayList<HashMap<String, Integer>> balls = new ArrayList<>();
 
     public static void main(String[] args) {
         PApplet.main("FourBallsRace", args);
@@ -25,36 +25,54 @@ public class FourBallsRace extends PApplet {
     public void setup() {
         setBlackBackground();
 
-        ballOneXCoor = 0;
-        ballOneYCoor = setYCoor(1);
+        HashMap<String, Integer> ballOne = new HashMap<>();
+        ballOne.put("x_position", 0);
+        ballOne.put("y_position", setYCoor(1));
+        ballOne.put("R", 235);
+        ballOne.put("G", 52);
+        ballOne.put("B", 52);
+        ballOne.put("speed", 1);
 
-        ballTwoXCoor = 0;
-        ballTwoYCoor = setYCoor(2);
+        HashMap<String, Integer> ballTwo = new HashMap<>();
+        ballTwo.put("x_position", 0);
+        ballTwo.put("y_position", setYCoor(2));
+        ballTwo.put("R", 79);
+        ballTwo.put("G", 255);
+        ballTwo.put("B", 56);
+        ballTwo.put("speed", 2);
 
-        ballThreeXCoor = 0;
-        ballThreeYCoor = setYCoor(3);
+        HashMap<String, Integer> ballThree = new HashMap<>();
+        ballThree.put("x_position", 0);
+        ballThree.put("y_position", setYCoor(3));
+        ballThree.put("R", 56);
+        ballThree.put("G", 232);
+        ballThree.put("B", 255);
+        ballThree.put("speed", 3);
 
-        ballFourXCoor = 0;
-        ballFourYCoor = setYCoor(4);
+        HashMap<String, Integer> ballFour = new HashMap<>();
+        ballFour.put("x_position", 0);
+        ballFour.put("y_position", setYCoor(4));
+        ballFour.put("R", 183);
+        ballFour.put("G", 89);
+        ballFour.put("B", 255);
+        ballFour.put("speed", 4);
+
+        balls.add(ballOne);
+        balls.add(ballTwo);
+        balls.add(ballThree);
+        balls.add(ballFour);
+
+        System.out.println(balls);
+        System.out.println(balls.get(0));
     }
 
     @Override
     public void draw() {
-        fill(235, 52, 52);
-        ellipse(ballOneXCoor, ballOneYCoor, BALL_DIAMETER, BALL_DIAMETER);
-        ballOneXCoor++;
-
-        fill(79, 255, 56);
-        ellipse(ballTwoXCoor, ballTwoYCoor, BALL_DIAMETER, BALL_DIAMETER);
-        ballTwoXCoor += 2;
-
-        fill(56, 232, 255);
-        ellipse(ballThreeXCoor, ballThreeYCoor, BALL_DIAMETER, BALL_DIAMETER);
-        ballThreeXCoor += 3;
-
-        fill(183, 89, 255);
-        ellipse(ballFourXCoor, ballFourYCoor, BALL_DIAMETER, BALL_DIAMETER);
-        ballFourXCoor += 4;
+        for (int i = 0; i < 4; i++) {
+            fill((balls.get(i)).get("R"), (balls.get(i)).get("G"), (balls.get(i)).get("B"));
+            ellipse(balls.get(i).get("x_position"), balls.get(i).get("y_position"), BALL_DIAMETER, BALL_DIAMETER);
+            balls.get(i).put("x_position", balls.get(i).get("x_position") + balls.get(i).get("speed"));
+        }
     }
 
     private void setBlackBackground() {
