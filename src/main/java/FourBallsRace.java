@@ -71,7 +71,7 @@ public class FourBallsRace extends PApplet {
         for (int ballNum = 0; ballNum < 4; ballNum++) {
             fill(getBall(ballNum, "R"), getBall(ballNum, "G"), getBall(ballNum, "B"));
             ellipse(getBall(ballNum, "x_position"), getBall(ballNum, "y_position"), BALL_DIAMETER, BALL_DIAMETER);
-            balls.get(ballNum).put("x_position", balls.get(ballNum).get("x_position") + balls.get(ballNum).get("speed"));
+            moveTheBall(ballNum);
         }
     }
 
@@ -86,5 +86,9 @@ public class FourBallsRace extends PApplet {
 
     private int getBall(int ballNum, String param){
         return balls.get(ballNum).get(param);
+    }
+
+    private void moveTheBall(int ballNum){
+        balls.get(ballNum).put("x_position", balls.get(ballNum).get("x_position")+balls.get(ballNum).get("speed"));
     }
 }
