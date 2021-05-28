@@ -68,10 +68,10 @@ public class FourBallsRace extends PApplet {
 
     @Override
     public void draw() {
-        for (int i = 0; i < 4; i++) {
-            fill((balls.get(i)).get("R"), (balls.get(i)).get("G"), (balls.get(i)).get("B"));
-            ellipse(balls.get(i).get("x_position"), balls.get(i).get("y_position"), BALL_DIAMETER, BALL_DIAMETER);
-            balls.get(i).put("x_position", balls.get(i).get("x_position") + balls.get(i).get("speed"));
+        for (int ballNum = 0; ballNum < 4; ballNum++) {
+            fill(getBall(ballNum, "R"), getBall(ballNum, "G"), getBall(ballNum, "B"));
+            ellipse(getBall(ballNum, "x_position"), getBall(ballNum, "y_position"), BALL_DIAMETER, BALL_DIAMETER);
+            balls.get(ballNum).put("x_position", balls.get(ballNum).get("x_position") + balls.get(ballNum).get("speed"));
         }
     }
 
@@ -82,5 +82,9 @@ public class FourBallsRace extends PApplet {
 
     private int setYCoor(int ballNo) {
         return (int) ((SKETCH_HEIGHT * ballNo) / 5.0);
+    }
+
+    private int getBall(int ballNum, String param){
+        return balls.get(ballNum).get(param);
     }
 }
