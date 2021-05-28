@@ -9,6 +9,7 @@ public class FourBallsRace extends PApplet {
     private final int SKETCH_HEIGHT = 480;
     private final int BALL_DIAMETER = 25;
 
+    HashMap<String, Integer> ballOne, ballTwo, ballThree, ballFour;
     ArrayList<HashMap<String, Integer>> balls = new ArrayList<>();
 
     public static void main(String[] args) {
@@ -24,38 +25,10 @@ public class FourBallsRace extends PApplet {
     @Override
     public void setup() {
         setBlackBackground();
-
-        HashMap<String, Integer> ballOne = new HashMap<>();
-        ballOne.put("x_position", 0);
-        ballOne.put("y_position", setYCoor(1));
-        ballOne.put("R", 235);
-        ballOne.put("G", 52);
-        ballOne.put("B", 52);
-        ballOne.put("speed", 1);
-
-        HashMap<String, Integer> ballTwo = new HashMap<>();
-        ballTwo.put("x_position", 0);
-        ballTwo.put("y_position", setYCoor(2));
-        ballTwo.put("R", 79);
-        ballTwo.put("G", 255);
-        ballTwo.put("B", 56);
-        ballTwo.put("speed", 2);
-
-        HashMap<String, Integer> ballThree = new HashMap<>();
-        ballThree.put("x_position", 0);
-        ballThree.put("y_position", setYCoor(3));
-        ballThree.put("R", 56);
-        ballThree.put("G", 232);
-        ballThree.put("B", 255);
-        ballThree.put("speed", 3);
-
-        HashMap<String, Integer> ballFour = new HashMap<>();
-        ballFour.put("x_position", 0);
-        ballFour.put("y_position", setYCoor(4));
-        ballFour.put("R", 183);
-        ballFour.put("G", 89);
-        ballFour.put("B", 255);
-        ballFour.put("speed", 4);
+        setBallOneParams();
+        setBallTwoParams();
+        setBallThreeParams();
+        setBallFourParams();
 
         balls.add(ballOne);
         balls.add(ballTwo);
@@ -87,5 +60,44 @@ public class FourBallsRace extends PApplet {
 
     private void moveTheBall(int ballNum){
         balls.get(ballNum).put("x_position", balls.get(ballNum).get("x_position")+balls.get(ballNum).get("speed"));
+    }
+
+    private void setBallOneParams(){
+        ballOne = new HashMap<>();
+        ballOne.put("x_position", 0);
+        ballOne.put("y_position", setYCoor(1));
+        ballOne.put("R", 235);
+        ballOne.put("G", 52);
+        ballOne.put("B", 52);
+        ballOne.put("speed", 1);
+    }
+    private void setBallTwoParams(){
+        ballTwo = new HashMap<>();
+        ballTwo.put("x_position", 0);
+        ballTwo.put("y_position", setYCoor(2));
+        ballTwo.put("R", 79);
+        ballTwo.put("G", 255);
+        ballTwo.put("B", 56);
+        ballTwo.put("speed", 2);
+    }
+
+    private void setBallThreeParams(){
+        ballThree = new HashMap<>();
+        ballThree.put("x_position", 0);
+        ballThree.put("y_position", setYCoor(3));
+        ballThree.put("R", 56);
+        ballThree.put("G", 232);
+        ballThree.put("B", 255);
+        ballThree.put("speed", 3);
+    }
+
+    private void setBallFourParams(){
+        ballFour = new HashMap<>();
+        ballFour.put("x_position", 0);
+        ballFour.put("y_position", setYCoor(4));
+        ballFour.put("R", 183);
+        ballFour.put("G", 89);
+        ballFour.put("B", 255);
+        ballFour.put("speed", 4);
     }
 }
