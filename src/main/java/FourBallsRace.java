@@ -61,9 +61,6 @@ public class FourBallsRace extends PApplet {
         balls.add(ballTwo);
         balls.add(ballThree);
         balls.add(ballFour);
-
-        System.out.println(balls);
-        System.out.println(balls.get(0));
     }
 
     @Override
