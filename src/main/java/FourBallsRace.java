@@ -7,7 +7,7 @@ import java.util.HashMap;
 
 public class FourBallsRace extends PApplet {
 
-    public static final int ballOneIndex = 0;
+    public static final int BALL_ONE_INDEX = 0;
     public static final double SKETCH_SPLIT_THRESHOLD = 5.0;
     private final int SKETCH_WIDTH = 640;
     private final int SKETCH_HEIGHT = 480;
@@ -55,7 +55,7 @@ public class FourBallsRace extends PApplet {
     }
 
     private Boolean isGameOver() {
-        return getParam(ballOneIndex, "x_position") > SKETCH_WIDTH;
+        return getParam(BALL_ONE_INDEX, "x_position") > SKETCH_WIDTH;
     }
 
     private void setBlackBackground() {
