@@ -7,6 +7,8 @@ import java.util.HashMap;
 
 public class FourBallsRace extends PApplet {
 
+    public static final int ballOneIndex = 0;
+    public static final double SKETCH_SPLIT_THRESHOLD = 5.0;
     private final int SKETCH_WIDTH = 640;
     private final int SKETCH_HEIGHT = 480;
     private final int BALL_DIAMETER = 25;
@@ -43,7 +45,7 @@ public class FourBallsRace extends PApplet {
     @Override
     public void draw() {
         if (!isGameOver()) {
-            for (int ballNum = 0; ballNum < 4; ballNum++) {
+            for (int ballNum = 0; ballNum < balls.size(); ballNum++) {
                 fill(getParam(ballNum, "color"));
                 ellipse(getParam(ballNum, "x_position"), getParam(ballNum, "y_position"), BALL_DIAMETER, BALL_DIAMETER);
                 moveTheBall(ballNum);
@@ -53,7 +55,7 @@ public class FourBallsRace extends PApplet {
     }
 
     private Boolean isGameOver() {
-        return getParam(0, "x_position") > SKETCH_WIDTH;
+        return getParam(ballOneIndex, "x_position") > SKETCH_WIDTH;
     }
 
     private void setBlackBackground() {
@@ -61,7 +63,7 @@ public class FourBallsRace extends PApplet {
     }
 
     private int setYCoor(int ballNo) {
-        return (int) ((SKETCH_HEIGHT * ballNo) / 5.0);
+        return (int) ((SKETCH_HEIGHT * ballNo) / SKETCH_SPLIT_THRESHOLD);
     }
 
     private int getParam(int ballNum, String param) {
