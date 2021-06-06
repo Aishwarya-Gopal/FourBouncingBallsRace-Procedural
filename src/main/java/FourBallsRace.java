@@ -1,5 +1,6 @@
 import processing.core.PApplet;
 
+import java.awt.Color;
 import java.util.ArrayList;
 import java.util.HashMap;
 
@@ -8,6 +9,7 @@ public class FourBallsRace extends PApplet {
     private final int SKETCH_WIDTH = 640;
     private final int SKETCH_HEIGHT = 480;
     private final int BALL_DIAMETER = 25;
+    Color black, red, green, blue, violet;
 
     HashMap<String, Integer> ballOne, ballTwo, ballThree, ballFour;
     ArrayList<HashMap<String, Integer>> balls = new ArrayList<>();
@@ -18,7 +20,11 @@ public class FourBallsRace extends PApplet {
 
     @Override
     public void settings() {
-        super.settings();
+        black = new Color(0);
+        red = new Color(235, 52, 52);
+        green = new Color(79, 255, 56);
+        blue = new Color(56, 232, 255);
+        violet = new Color(183, 89, 255);
         size(SKETCH_WIDTH, SKETCH_HEIGHT);
     }
 
@@ -40,12 +46,11 @@ public class FourBallsRace extends PApplet {
     public void draw() {
         if (!isGameOver()) {
             for (int ballNum = 0; ballNum < 4; ballNum++) {
-                fill(getParam(ballNum, "R"), getParam(ballNum, "G"), getParam(ballNum, "B"));
+                fill(getParam(ballNum, "color"));
                 ellipse(getParam(ballNum, "x_position"), getParam(ballNum, "y_position"), BALL_DIAMETER, BALL_DIAMETER);
                 moveTheBall(ballNum);
             }
-        }
-        else
+        } else
             exit();
     }
 
@@ -54,58 +59,50 @@ public class FourBallsRace extends PApplet {
     }
 
     private void setBlackBackground() {
-        int SKETCH_BACKGROUND_COLOR = 0;
-        background(SKETCH_BACKGROUND_COLOR);
+        background(black.getRGB());
     }
 
     private int setYCoor(int ballNo) {
         return (int) ((SKETCH_HEIGHT * ballNo) / 5.0);
     }
 
-    private int getParam(int ballNum, String param){
+    private int getParam(int ballNum, String param) {
         return balls.get(ballNum).get(param);
     }
 
-    private void moveTheBall(int ballNum){
-        balls.get(ballNum).put("x_position", balls.get(ballNum).get("x_position")+balls.get(ballNum).get("speed"));
+    private void moveTheBall(int ballNum) {
+        balls.get(ballNum).put("x_position", balls.get(ballNum).get("x_position") + balls.get(ballNum).get("speed"));
     }
 
-    private void setBallOneParams(){
+    private void setBallOneParams() {
         ballOne = new HashMap<>();
         ballOne.put("x_position", 0);
         ballOne.put("y_position", setYCoor(1));
-        ballOne.put("R", 235);
-        ballOne.put("G", 52);
-        ballOne.put("B", 52);
+        ballOne.put("color", red.getRGB());
         ballOne.put("speed", 1);
     }
-    private void setBallTwoParams(){
+
+    private void setBallTwoParams() {
         ballTwo = new HashMap<>();
         ballTwo.put("x_position", 0);
         ballTwo.put("y_position", setYCoor(2));
-        ballTwo.put("R", 79);
-        ballTwo.put("G", 255);
-        ballTwo.put("B", 56);
+        ballTwo.put("color", green.getRGB());
         ballTwo.put("speed", 2);
     }
 
-    private void setBallThreeParams(){
+    private void setBallThreeParams() {
         ballThree = new HashMap<>();
         ballThree.put("x_position", 0);
         ballThree.put("y_position", setYCoor(3));
-        ballThree.put("R", 56);
-        ballThree.put("G", 232);
-        ballThree.put("B", 255);
+        ballThree.put("color", blue.getRGB());
         ballThree.put("speed", 3);
     }
 
-    private void setBallFourParams(){
+    private void setBallFourParams() {
         ballFour = new HashMap<>();
         ballFour.put("x_position", 0);
         ballFour.put("y_position", setYCoor(4));
-        ballFour.put("R", 183);
-        ballFour.put("G", 89);
-        ballFour.put("B", 255);
+        ballFour.put("color", violet.getRGB());
         ballFour.put("speed", 4);
     }
 }
