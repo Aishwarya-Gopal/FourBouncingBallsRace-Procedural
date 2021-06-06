@@ -55,6 +55,15 @@ public class FourBallsRace extends PApplet {
             exit();
     }
 
+    private HashMap<String, Integer> setBallParams(int y_position, int color, int speed){
+        HashMap<String, Integer> ball = new HashMap<>();
+        ball.put("x_position", SKETCH_LEFT_PX);
+        ball.put("y_position", y_position);
+        ball.put("color", color);
+        ball.put("speed", speed);
+        return ball;
+    }
+
     private Boolean isGameOver() {
         return getParam(BALL_ONE_INDEX, "x_position") > SKETCH_WIDTH;
     }
@@ -73,14 +82,5 @@ public class FourBallsRace extends PApplet {
 
     private void moveTheBall(int ballNum) {
         balls.get(ballNum).put("x_position", balls.get(ballNum).get("x_position") + balls.get(ballNum).get("speed"));
-    }
-
-    private HashMap<String, Integer> setBallParams(int y_position, int color, int speed){
-        HashMap<String, Integer> ball = new HashMap<>();
-        ball.put("x_position", SKETCH_LEFT_PX);
-        ball.put("y_position", y_position);
-        ball.put("color", color);
-        ball.put("speed", speed);
-        return ball;
     }
 }
