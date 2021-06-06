@@ -2,6 +2,7 @@ import processing.core.PApplet;
 
 import java.awt.Color;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashMap;
 
 public class FourBallsRace extends PApplet {
@@ -36,10 +37,7 @@ public class FourBallsRace extends PApplet {
         setBallThreeParams();
         setBallFourParams();
 
-        balls.add(ballOne);
-        balls.add(ballTwo);
-        balls.add(ballThree);
-        balls.add(ballFour);
+        Collections.addAll(balls, ballOne, ballTwo, ballThree, ballFour);
     }
 
     @Override
