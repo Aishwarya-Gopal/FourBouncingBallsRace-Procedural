@@ -37,3 +37,7 @@ STEPS:
 6) Enjoy!
 
 ___________________________
+
+Have a look at the [OOP Approach](https://github.com/Aishwarya-Gopal/FourBouncingBallsRace-OOPS) of this problem.
+
+____________________________
